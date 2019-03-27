@@ -4,7 +4,7 @@ function! s:SendToWindow(type, direction)
   let s:saved_pos=getpos(".")
   " Obtain wanted text
   if a:type == 'v' || a:type=='V' || a:type=="\<C-V>"
-    keepjumps normal! `<v`>y
+    keepjumps normal! `<v`>d
   elseif a:type ==# "char"
     keepjumps normal! `[v`]y
   elseif a:type ==# "line"
@@ -44,7 +44,7 @@ function! s:SendToWindow(type, direction)
   wincmd p
   " Position the cursor for the next action
   if s:endofline
-    normal! j0
+    normal! 0
   elseif a:type ==# "char"
     normal! l
   endif
